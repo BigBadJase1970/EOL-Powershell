@@ -1,0 +1,9 @@
+MESSAGE TRACKING
+Get-MessageTrackingLog -Sender "" -Recipients "" -MessageID "" | FL
+
+HISTORICAL SEARCH NOTE: US FORMAT ON DATE and EMAIL must be in tennant
+Start-HistoricalSearch -StartDate xx/xx/xxxx -EndDate xx/xx/xxxx -MessageID "MEXPR01MB06804E50B8E9A7B8108C885686AA0@MEXPR01MB0680.ausprd01.prod.outlook.com" -ReportType MessageTraceDetail -ReportTitle ModeratedGroupTrace -Direction All -NotifyAddress xxx@domain.com
+
+MONITOR
+Get-HistoricalSearch
+Once completed, please go to Exchange Online Admin Center -> Mail Flow -> Message trace -> View pending or completed traces, and download the report
