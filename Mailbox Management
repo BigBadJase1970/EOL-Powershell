@@ -1,0 +1,13 @@
+Get-Mailbox -Identity "identity" | FL
+
+CONCERT A MAILBOX
+Set-Mailbox MarketingDept1 -Type Regular (Regular, Room, Equipment, Shared)
+
+DELETED ITEM RETENTION (max 30 days)
+Set-Mailbox -Identity "Name" -RetainDeletedItemsFor 30
+
+Get-Mailbox -ResultSize unlimited -Filter {(RecipientTypeDetails -eq 'UserMailbox')} | Set-Mailbox -RetainDeletedItemsFor 30
+
+SEARCH AND RECOVER
+Search-Mailbox "April Stewart" -SearchQuery "from:'Ken Kwok' AND seattle" -TargetMailbox "Discovery Search Mailbox" -TargetFolder "April Stewart Recovery" -LogLevel Full
+Search-Mailbox "Discovery Search Mailbox" -SearchQuery "from:'Ken Kwok' AND seattle" -TargetMailbox "April Stewart" -TargetFolder "Recovered Messages" -LogLevel Full -DeleteContent
